@@ -9,15 +9,11 @@ const authStore = useAuthStore()
 </script>
 
 <template>
-  <div class="app-container" :class="authStore.user && 'bg-light'">
+  <div>
     <Nav />
     <Alert />
-    <div class="container pt-4 pb-4">
+    <main role="main" class="container">
       <RouterView />
-    </div>
+    </main>
   </div>
 </template>
-
-<style>
-@import '@/assets/style.css';
-</style>

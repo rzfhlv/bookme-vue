@@ -55,18 +55,20 @@ export const useAuthStore = defineStore({
     },
     async logout() {
       try {
+        console.log('ada')
         await axios.post(baseUrl + '/logout', null, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token')
           }
         })
         .then((response) => {
+          console.log(response)
           this.user = null
           localStorage.removeItem('user')
           localStorage.removeItem('token')
         })
 
-        router.push('/account/login')
+        router.push('/account/signin')
       } catch (error) {
         const alertStore = useAlertStore()
         alertStore.error(error)
